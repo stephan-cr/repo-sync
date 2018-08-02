@@ -1,0 +1,10 @@
+[
+    {
+        "repo-type": "git",
+        "dir": "/home/xxx"
+    },
+    {
+        "repo-type": "hg",
+        "dir": "/home/yyy"
+    }
+]
