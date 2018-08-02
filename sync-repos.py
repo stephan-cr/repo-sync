@@ -5,11 +5,13 @@ import sys
 
 supported_repo_types = ['hg', 'git', 'svn']
 
+
 def execute_cmd(*args):
     return subprocess.call(args, stdout=sys.stdout, stderr=sys.stderr)
 
-def main():
-    config_dir = os.path.dirname(sys.argv[0])
+
+def main(argv):
+    config_dir = os.path.dirname(argv[0])
     conf = None
     with open(os.path.join(config_dir, 'sync-repos.conf'), 'r') as conf_file:
         try:
@@ -22,7 +24,7 @@ def main():
         repo_type = item['repo-type']
         if repo_type in supported_repo_types:
             os.chdir(item['dir'])
-            print("%s >>> %s" % (repo_type, item['dir']))
+            print('%s >>> %s' % (repo_type, item['dir']))
             if repo_type == 'hg':
                 execute_cmd('hg', 'pull', '-u')
             elif repo_type == 'git':
@@ -32,5 +34,6 @@ def main():
             else:
                 print('unknown')
 
+
 if __name__ == '__main__':
-    main()
+    main(sys.argv)
