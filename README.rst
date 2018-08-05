@@ -8,4 +8,4 @@ How to install
 
 .. code:: shell
 
-   pip install -e https://bitbucket.org/stephan_cr/repo-sync
+   pip install -e hg+https://bitbucket.org/stephan_cr/repo-sync#egg=repo-sync
