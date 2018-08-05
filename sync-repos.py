@@ -1,7 +1,10 @@
 import json
 import os
+import os.path
 import subprocess
 import sys
+
+from xdg.BaseDirectory import xdg_config_home
 
 supported_repo_types = ['hg', 'git', 'svn']
 
@@ -11,7 +14,11 @@ def execute_cmd(*args):
 
 
 def main(argv):
-    config_dir = os.path.dirname(argv[0])
+    if xdg_config_home is None or xdg_config_home == '':
+        config_dir = os.path.join(os.path.expanduser('~'), '.config')
+    else:
+        config_dir = xdg_config_home
+
     conf = None
     with open(os.path.join(config_dir, 'sync-repos.conf'), 'r') as conf_file:
         try:
