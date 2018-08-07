@@ -13,7 +13,7 @@ def execute_cmd(*args):
     return subprocess.call(args, stdout=sys.stdout, stderr=sys.stderr)
 
 
-def main(argv):
+def main():
     if xdg_config_home is None or xdg_config_home == '':
         config_dir = os.path.join(os.path.expanduser('~'), '.config')
     else:
@@ -40,7 +40,3 @@ def main(argv):
                 execute_cmd('svn', 'update')
             else:
                 print('unknown')
-
-
-if __name__ == '__main__':
-    main(sys.argv)
