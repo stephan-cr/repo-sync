@@ -33,9 +33,9 @@ def main():
             os.chdir(item['dir'])
             print('%s >>> %s' % (repo_type, item['dir']))
             if repo_type == 'hg':
-                execute_cmd('hg', 'pull', '-u')
+                execute_cmd('hg', 'pull')
             elif repo_type == 'git':
-                execute_cmd('git', 'pull')
+                execute_cmd('git', 'fetch')
             elif repo_type == 'svn':
                 execute_cmd('svn', 'update')
             else:
