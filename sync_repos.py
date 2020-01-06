@@ -1,6 +1,7 @@
 import json
 import os
 import os.path
+import re
 import subprocess
 import sys
 
@@ -30,8 +31,10 @@ def main():
     for item in conf:
         repo_type = item['repo-type']
         if repo_type in supported_repo_types:
-            os.chdir(item['dir'])
-            print('{:s} >>> {:s}'.format(repo_type, item['dir']))
+            dir_ = re.sub(r'\$HOME(?=/|\$|\Z)', os.environ['HOME'],
+                          item['dir'])
+            os.chdir(dir_)
+            print('{:s} >>> {:s}'.format(repo_type, dir_))
             if repo_type == 'hg':
                 execute_cmd('hg', 'pull')
             elif repo_type == 'git':
