@@ -1,3 +1,4 @@
+import argparse
 import json
 import os
 import os.path
@@ -7,6 +8,7 @@ import sys
 
 from xdg.BaseDirectory import xdg_config_home
 
+__version__ = '0.0.1rc3'
 supported_repo_types = ('hg', 'git', 'svn')
 
 
@@ -15,6 +17,11 @@ def execute_cmd(*args):
 
 
 def main():
+    parser = argparse.ArgumentParser(prog='repo-sync')
+    parser.add_argument('--version', action='version',
+                        version='%(prog)s {:s}'.format(__version__))
+    parser.parse_args()
+
     if xdg_config_home is None or xdg_config_home == '':
         config_dir = os.path.join(os.path.expanduser('~'), '.config')
     else:
