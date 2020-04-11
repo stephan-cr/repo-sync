@@ -31,8 +31,8 @@ Supported Version Control Systems
 Configuration File Structure
 ----------------------------
 
-A configuration file in $HOME/.config/sync-repos.conf is required and
-is structured as follows:
+A configuration file in `$XDG_CONFIG_HOME/sync-repos.conf` is required
+and is structured as follows:
 
 .. code-block:: json
 
@@ -46,3 +46,8 @@ is structured as follows:
            "dir": "/home/yyy"
        }
    ]
+
+XDG_ is used to locate configuration files. If `$XDG_CONFIG_HOME` is
+not set, it defaults to `$HOME/.config`.
+
+.. _XDG: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
