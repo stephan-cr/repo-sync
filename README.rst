@@ -14,8 +14,7 @@ Supported Version Control Systems
 ---------------------------------
 
 +-------------+-----------+
-| VCS         | repo-sync |
-|             | type      |
+| VCS         | repo-type |
 +=============+===========+
 | Git_        | git       |
 +-------------+-----------+
@@ -24,15 +23,11 @@ Supported Version Control Systems
 | Subversion_ | svn       |
 +-------------+-----------+
 
-.. _Git: https://git-scm.com/
-.. _Mercurial: https://www.mercurial-scm.org/
-.. _Subversion: https://subversion.apache.org/
-
 Configuration File Structure
 ----------------------------
 
-A configuration file in `$XDG_CONFIG_HOME/sync-repos.conf` is required
-and is structured as follows:
+A JSON configuration file in `$XDG_CONFIG_HOME/sync-repos.conf` is
+required and is structured as follows:
 
 .. code-block:: json
 
@@ -50,4 +45,10 @@ and is structured as follows:
 XDG_ is used to locate configuration files. If `$XDG_CONFIG_HOME` is
 not set, it defaults to `$HOME/.config`.
 
+Hint: the directory specification may contain the environment variable
+`$HOME`.
+
+.. _Git: https://git-scm.com/
+.. _Mercurial: https://www.mercurial-scm.org/
+.. _Subversion: https://subversion.apache.org/
 .. _XDG: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
