@@ -8,7 +8,7 @@ import sys
 
 from xdg.BaseDirectory import xdg_config_home
 
-__version__ = '0.0.1rc3'
+__version__ = '0.0.1rc4'
 supported_repo_types = ('hg', 'git', 'svn')
 
 

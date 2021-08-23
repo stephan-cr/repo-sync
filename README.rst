@@ -8,7 +8,7 @@ How to install
 
 .. code:: shell
 
-   pip install -e git+https://github.com/stephan-cr/repo-sync#egg=repo-sync
+   pip install git+https://github.com/stephan-cr/repo-sync
 
 Supported Version Control Systems
 ---------------------------------
