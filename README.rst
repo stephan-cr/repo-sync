@@ -26,7 +26,7 @@ Supported Version Control Systems
 Configuration File Structure
 ----------------------------
 
-A JSON configuration file in `$XDG_CONFIG_HOME/sync-repos.conf` is
+A JSON configuration file in ``$XDG_CONFIG_HOME/sync-repos.conf`` is
 required and is structured as follows:
 
 .. code-block:: json
@@ -42,11 +42,11 @@ required and is structured as follows:
        }
    ]
 
-XDG_ is used to locate configuration files. If `$XDG_CONFIG_HOME` is
-not set, it defaults to `$HOME/.config`.
+XDG_ is used to locate configuration files. If ``$XDG_CONFIG_HOME`` is
+not set, it defaults to ``$HOME/.config``.
 
 Hint: the directory specification may contain the environment variable
-`$HOME`.
+``$HOME``.
 
 .. _Git: https://git-scm.com/
 .. _Mercurial: https://www.mercurial-scm.org/
