@@ -1,3 +1,25 @@
 [build-system]
-requires = ["setuptools >= 40.6.0", "wheel"]
+requires = ["setuptools >= 61.0"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "repo-sync"
+dependencies = [
+  "pyxdg"
+]
+readme = "README.rst"
+license = {file = "LICENSE"}
+classifiers = [
+  "Development Status :: 1 - Planning",
+  "Environment :: Console",
+  "Intended Audience :: End Users/Desktop",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3"
+]
+dynamic = ["version"]
+
+[project.scripts]
+repo-sync = "sync_repos:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "sync_repos.__version__"}
