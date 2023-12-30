@@ -19,7 +19,7 @@ def execute_cmd(*args):
 def main():
     parser = argparse.ArgumentParser(prog='repo-sync')
     parser.add_argument('--version', action='version',
-                        version='%(prog)s {:s}'.format(__version__))
+                        version=f'%(prog)s {__version__:s}')
     parser.parse_args()
 
     if xdg_config_home is None or xdg_config_home == '':
@@ -41,7 +41,7 @@ def main():
             dir_ = re.sub(r'\$HOME(?=/|\$|\Z)', os.environ['HOME'],
                           item['dir'])
             os.chdir(dir_)
-            print('{:s} >>> {:s}'.format(repo_type, dir_))
+            print(f'{repo_type:s} >>> {dir_:s}')
             if repo_type == 'hg':
                 execute_cmd('hg', 'pull')
             elif repo_type == 'git':
@@ -49,5 +49,4 @@ def main():
             elif repo_type == 'svn':
                 execute_cmd('svn', 'update')
             else:
-                print('unknown repo type: \"{}\"'.format(repo_type),
-                      file=sys.stderr)
+                print(f'unknown repo type: \"{repo_type}\"', file=sys.stderr)
